@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:weather_app/core/constants/app_constants.dart';
 import 'package:weather_app/core/errors/exceptions.dart';
 import 'package:weather_app/core/network/api_client.dart';
@@ -27,7 +29,6 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
         '${AppConstants.baseUrl}${AppConstants.weatherEndpoint}',
         params: params,
       );
-
       return WeatherModel.fromJson(response);
     } on ServerException {
       rethrow;
